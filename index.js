@@ -16,7 +16,7 @@ ${shape.render(text, textColor)}
 `
 
 //write the shape to a file
-fs.writeFile("test-write.svg", shape.render(text, textColor), function(error) {
+fs.writeFile("test-write.svg", logo, function(error) {
     if (error) {
         console.log(error);
     }
