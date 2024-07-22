@@ -1,6 +1,5 @@
 <svg version="1.1"
 width="300" height="200"
 xmlns="http://www.w3.org/2000/svg">
-<circle cx="150" cy="100" r="80" fill="white" />
-<text x="100" y="120"><tspan font-size="60" fill="blue">ABC</text>
+<rect x="10" y="10" width="30" height="30" fill="green" stroke-width="5"/><text x="100" y="120"><tspan font-size="60" fill="blue">${text}</text>
    
