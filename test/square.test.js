@@ -1,15 +1,15 @@
-const Circle = require('../lib/circle.js');
+const Square = require('../lib/square.js');
 
-describe('circle', function() {
-    it('is a circle', function() {
+describe('square', function() {
+    it('is a square', function() {
         
         const text = "ABC";
         const textColor = "BLUE";
-        const shapeColor = "Red";
-        const newCircle = new Circle(text, textColor, shapeColor);
+        const shapeColor = "green";
+        const newSquare = new Square(text, textColor, shapeColor);
         
 
-        expect(newCircle.render(text, textColor, shapeColor)).toBe(`<circle cx="150" cy="100" r="80" fill="red"/><text x="100" y="120"><tspan font-size="60" fill="blue">ABC</text>`);
+        expect(newSquare.render(text, textColor, shapeColor)).toBe(`<rect x="10" y="10" width="100" height="100" fill="green"/><text x="30" y="68"><tspan font-size="40" fill="blue">ABC</text>`);
     });
 
 });
