@@ -1,7 +1,35 @@
 const shapes = require("./lib/shapes.js");
 const fs = require('fs');
+const inq = require('inquirer');
 
-// Placeholder for text and textColor
+function promptStart(){
+    inq.prompt([
+        {
+            type: "input",
+            message: "Please enter the name you would like to give this file WITHOUT the extension",
+            name: "fileName",
+        },
+        {
+            type: "input",
+            message: "Please enter 3 letters that will display on the icon",
+            name: "text",
+        }
+    ]).then((response) => {
+        textCheck(response.text);
+    });
+
+}
+
+function textCheck(text) {
+    if (text.length < 3) {
+        console.log("Error! Use THREE OR LESS letters for your text");
+        promptStart();
+    }
+}
+
+promptStart();
+
+// Placeholder for text and textColor, remove after prompts are created
 const text = "ABC";
 const textColor = "blue";
 
