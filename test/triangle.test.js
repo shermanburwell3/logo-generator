@@ -1,15 +1,15 @@
-const Circle = require('../lib/circle.js');
+const Triangle = require('../lib/triangle.js');
 
-describe('circle', function() {
-    it('is a circle', function() {
+describe('triangle', function() {
+    it('is a triangle', function() {
         
         const text = "ABC";
-        const textColor = "BLUE";
-        const shapeColor = "Red";
-        const newCircle = new Circle(text, textColor, shapeColor);
+        const textColor = "green";
+        const shapeColor = "BLUE";
+        const newTriangle = new Triangle(text, textColor, shapeColor);
         
 
-        expect(newCircle.render(text, textColor, shapeColor)).toBe(`<circle cx="150" cy="100" r="80" fill="red"/><text x="100" y="120"><tspan font-size="60" fill="blue">ABC</text>`);
+        expect(newTriangle.render(text, textColor, shapeColor)).toBe(`<polygon points="35 10 10 45 60 45" fill="blue"/><text x="18" y="40"><tspan font-size="20" fill="green">ABC</text>`);
     });
 
 });
