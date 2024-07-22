@@ -13,7 +13,7 @@ const logo = `<svg version="1.1"
 width="300" height="200"
 xmlns="http://www.w3.org/2000/svg">
 ${shape.render(text, textColor)}
-`
+`;
 
 //write the shape to a file
 fs.writeFile("test-write.svg", logo, function(error) {
