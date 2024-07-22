@@ -1,5 +1,7 @@
 # Logo Generator
 
+
+
 ## Credits
 
 Mozilla for providing the documentation and code snippets for the svg files

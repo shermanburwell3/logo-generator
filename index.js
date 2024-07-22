@@ -18,9 +18,17 @@ function promptStart(){
             name: "text",
         }
     ]).then((response) => {
-        textCheck(response.text);
-    }).then(function (response) {
+        textCheck(response.fileName, response.text);
+    });
 
+}
+
+function textCheck(fileName, text) {
+    if (text.length > 3) {
+        console.log("Error! Use THREE OR LESS letters for your text");
+        promptStart();
+    }
+    else {
         inquirer.prompt([
             {
                 type: "list",
@@ -40,18 +48,11 @@ function promptStart(){
             }
             
         ]).then(function(response) {
-            writeSVGFile(response.fileName, response.shape, response.text, response.textColor, response.shapeColor);
-        })
-    });
-
-}
-
-function textCheck(text) {
-    if (text.length > 3) {
-        console.log("Error! Use THREE OR LESS letters for your text");
-        promptStart();
+            writeSVGFile(fileName, response.shape, text, response.textColor, response.shapeColor);
+        });
     }
 }
+
 
 promptStart();
 
