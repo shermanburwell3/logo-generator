@@ -1,4 +1,7 @@
 const shapes = require("./lib/shapes.js");
+const Circle = require("./lib/circle.js");
+const Square = require("./lib/square.js");
+const Triangle = require("./lib/triangle.js");
 const fs = require('fs');
 const inquirer = require('inquirer');
 
@@ -23,7 +26,7 @@ function promptStart(){
                 type: "list",
                 message: "Please select the shape you wish to use",
                 name: "shape",
-                choices: ["circle", "square", "triangle"],
+                choices: ["Circle", "Square", "Triangle"],
             },
             {
                 type: "input",
@@ -35,6 +38,7 @@ function promptStart(){
                 message: "Now enter the color you would like the background shape to be, or give a hexidecimal value. If the color is not recognized, black will be used",
                 name: "shapeColor",
             }
+            
         ]).then(function(response) {
             writeSVGFile(response.fileName, response.shape, response.text, response.textColor, response.shapeColor);
         })
@@ -52,18 +56,29 @@ function textCheck(text) {
 promptStart();
 
 function writeSVGFile(fileName, shape, text, textColor, shapeColor) {
-    // Placeholder for text and textColor, remove after prompts are created
-    const text = "ABC";
-    const textColor = "blue";
 
     // declare a new shape, change to switch case to decide the shape
-    const shape = new shapes();
+    let newShape;
+    switch (shape) {
+        case "Circle":
+            newShape = new Circle(text, textColor, shapeColor);
+            break;
+        case "Square":
+            newShape = new Square(text, textColor, shapeColor);
+            break;
+        case "Triangle":
+            newShape = new Triangle(text, textColor, shapeColor);
+            break;
+        default:
+            break;
+
+    }
 
     // Set up the xml code for the svg file
     const logo = `<svg version="1.1"
     width="300" height="200"
     xmlns="http://www.w3.org/2000/svg">
-    ${shape.render(text, textColor, shapeColor)}
+    ${newShape.render(text, textColor, shapeColor)}
     `;
 
     //write the shape to a file
