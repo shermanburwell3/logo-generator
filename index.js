@@ -1,9 +1,9 @@
 const shapes = require("./lib/shapes.js");
 const fs = require('fs');
-const inq = require('inquirer');
+const inquirer = require('inquirer');
 
 function promptStart(){
-    inq.prompt([
+    inquirer.prompt([
         {
             type: "input",
             message: "Please enter the name you would like to give this file WITHOUT the extension",
@@ -21,7 +21,7 @@ function promptStart(){
 }
 
 function textCheck(text) {
-    if (text.length < 3) {
+    if (text.length > 3) {
         console.log("Error! Use THREE OR LESS letters for your text");
         promptStart();
     }
